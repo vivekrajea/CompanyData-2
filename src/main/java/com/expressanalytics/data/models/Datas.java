@@ -1,10 +1,16 @@
-package com.expressanalytics.data;
+package com.expressanalytics.data.models;
 
 
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
 
 @Entity
 @Table
@@ -17,25 +23,30 @@ public class Datas {
 	private String abbrName;
 	private String regNo;
 	private String logo;
-	private String activeDate;
-	private String isActive;
-	private String createdOn;
+	@Temporal(TemporalType.DATE)
+    private Date activeDate;
+	private boolean isActive;
+	@Temporal(TemporalType.DATE)
+    private Date createdOn;
 	private String createdBy;
-	private String lastModifiedOn;
+	@Temporal(TemporalType.DATE)
+    private Date lastModifiedOn;
 	private String lastModifiedBy;
 	private String deactivatedBy;
-	private String deactivatedOn;
+	@Temporal(TemporalType.DATE)
+    private Date deactivatedOn;
 	private String reactivatedBy;
-	private String reactivatedOn;
+	@Temporal(TemporalType.DATE)
+    private Date reactivatedOn;
 	
 	public Datas() {
 		
 	}
 	
 	public Datas(String code, String codeHRIS, String name, String abbrName, String regNo, String logo,
-			String activeDate, String isActive, String createdOn, String createdBy, String lastModifiedOn,
-			String lastModifiedBy, String deactivatedBy, String deactivatedOn, String reactivatedBy,
-			String reactivatedOn) {
+			Date activeDate, boolean isActive, Date createdOn, String createdBy, Date lastModifiedOn,
+			String lastModifiedBy, String deactivatedBy, Date deactivatedOn, String reactivatedBy,
+			Date reactivatedOn) {
 		super();
 		this.code = code;
 		this.codeHRIS = codeHRIS;
@@ -103,27 +114,27 @@ public class Datas {
 		this.logo = logo;
 	}
 
-	public String getActiveDate() {
+	public Date getActiveDate() {
 		return activeDate;
 	}
 
-	public void setActiveDate(String activeDate) {
+	public void setActiveDate(Date activeDate) {
 		this.activeDate = activeDate;
 	}
 
-	public String isActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setActive(String isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
-	public String getCreatedOn() {
+	public Date getCreatedOn() {
 		return createdOn;
 	}
 
-	public void setCreatedOn(String createdOn) {
+	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
 
@@ -135,11 +146,11 @@ public class Datas {
 		this.createdBy = createdBy;
 	}
 
-	public String getLastModifiedOn() {
+	public Date getLastModifiedOn() {
 		return lastModifiedOn;
 	}
 
-	public void setLastModifiedOn(String lastModifiedOn) {
+	public void setLastModifiedOn(Date lastModifiedOn) {
 		this.lastModifiedOn = lastModifiedOn;
 	}
 
@@ -159,11 +170,11 @@ public class Datas {
 		this.deactivatedBy = deactivatedBy;
 	}
 
-	public String getDeactivatedOn() {
+	public Date getDeactivatedOn() {
 		return deactivatedOn;
 	}
 
-	public void setDeactivatedOn(String deactivatedOn) {
+	public void setDeactivatedOn(Date deactivatedOn) {
 		this.deactivatedOn = deactivatedOn;
 	}
 
@@ -175,11 +186,11 @@ public class Datas {
 		this.reactivatedBy = reactivatedBy;
 	}
 
-	public String getReactivatedOn() {
+	public Date getReactivatedOn() {
 		return reactivatedOn;
 	}
 
-	public void setReactivatedOn(String reactivatedOn) {
+	public void setReactivatedOn(Date reactivatedOn) {
 		this.reactivatedOn = reactivatedOn;
 	}
 }
